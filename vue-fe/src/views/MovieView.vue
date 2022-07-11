@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div v-if="movie.title" class="wrapper">
     <div class="title">{{ movie.title }}</div>
     <div class="genre">{{ movie.genre + ", " + movie.year }}</div>
     <div class="sypnosis">{{ movie.sypnosis }}</div>
