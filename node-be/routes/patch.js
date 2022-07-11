@@ -27,6 +27,7 @@ router.get('/', async (req,res) => {
 
     for (let i = 0; i < data.movies.length; i++) {
         var movie = new Movie({
+            code: 1000 + i,
             title:  data.movies[i].title,
             sypnosis: data.movies[i].sypnosis,
             genre: data.movies[i].genre,

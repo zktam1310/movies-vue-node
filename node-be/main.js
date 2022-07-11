@@ -28,18 +28,8 @@ app.use('/movies', movieRoute)
 app.use('/patch', patchRoute)
 
 
-//Connect DB
-// mongoose.connect(
-//   process.env.MONGO_URI,
-//   {useNewUrlParser: true},
-//   function (err) {
-//     if (err) return console.log(err);
-//     console.log("Connected to Mongo DB.")
-//   }
-// )
 
-
-
+//Connect Mongo DB
 async function connectMongo() {
   try {
     await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
