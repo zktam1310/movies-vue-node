@@ -5,7 +5,11 @@ node-be/npm-debug.log*
 node-be/yarn-debug.log*
 node-be/yarn-error.log*
 node-be/lerna-debug.log*
-
 node-be/node_modules
-
 node-be/.env
+
+vue-fe/logs
+vue-fe/*.log
+vue-fe/node_modules
+vue-fe/.env
+
