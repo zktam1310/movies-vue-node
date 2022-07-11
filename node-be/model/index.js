@@ -24,7 +24,16 @@ const movieSchema = mongoose.Schema({
     },
 }, {timestamps: true});
 
+const genreSchema = mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+        unique: true
+    }
+}, {timestamps: true});
+
 
 const Movie = mongoose.model('Movie', movieSchema)
+const Genre = mongoose.model('Genre', genreSchema)
 
-module.exports = { Movie }
+module.exports = { Movie, Genre }

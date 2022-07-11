@@ -50,9 +50,12 @@ router.post('/', async (req,res) => {
 
     if (req.body.filter_options) {
         var filters = {}
-        var activeFilters = ["genre", "year"]
+        var activeFilters = ["title","genre", "year"]
         for (const [key, value] of Object.entries(req.body.filter_options)) {
-            if (value && activeFilters.includes(key)) filters[key] = value
+            if (!value || !activeFilters.includes(key)) continue
+
+            if (key == "title") filters[key] = { $regex: '.*' + value + '.*' }
+            else filters[key] = value
         }
     }
     var sorting = req.body.sort_options || null
@@ -70,7 +73,9 @@ router.post('/', async (req,res) => {
             } else {
                 res.json({
                     status: 'ok',
-                    data: movies
+                    data: {
+                        movies
+                    }
                 })
             }
 

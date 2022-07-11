@@ -23,9 +23,11 @@ app.get('/', (req,res ) => {
 
 //Other routes
 const movieRoute = require('./routes/movies')
+const genreRoute = require('./routes/genres')
 const patchRoute = require('./routes/patch')
-app.use('/movies', movieRoute)
-app.use('/patch', patchRoute)
+app.use('/api/movies', movieRoute)
+app.use('/api/genres', genreRoute)
+app.use('/api/patch', patchRoute)
 
 
 

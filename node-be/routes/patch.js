@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const data = require('../utils/data.json');
 
-const { Movie } = require('../model')
+const { Movie, Genre } = require('../model')
 
 router.get('/', async (req,res) => {
 
@@ -25,6 +25,29 @@ router.get('/', async (req,res) => {
 
     if (isPatched) return;
 
+    //Insert Genres
+    for (let i = 0; i < data.genres.length; i++) {
+        var genre = new Genre({
+            title:  data.genres[i]
+        })
+
+        try{
+            const newGenre = await genre.save(genre)
+            const return_data = {
+                newGenre
+            }
+            console.log({ status: 'ok', data: return_data})
+        } catch(err) {
+            hasError = 1;
+            errorMsg.push(err);
+            if (err.code == 11000) {
+                return console.log({ status: 'error', msg: 'Title is taken.' })
+            }
+            console.log({ status: 'error', msg: err })
+        }
+    }
+
+    //Insert Movies
     for (let i = 0; i < data.movies.length; i++) {
         var movie = new Movie({
             code: 1000 + i,
@@ -48,7 +71,6 @@ router.get('/', async (req,res) => {
             }
             console.log({ status: 'error', msg: err })
         }
-
     }
 
     if (hasError) {
