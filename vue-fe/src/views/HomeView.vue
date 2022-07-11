@@ -49,14 +49,6 @@ export default {
       movies: []
     }
   },
-  watch: {
-    selected_genres: {
-      handler (newValue) {
-        console.log(newValue)
-      },
-      deep: true
-    }
-  },
   mounted () {
     this.fetchGenres()
     this.fetchMovies()

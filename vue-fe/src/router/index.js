@@ -24,7 +24,8 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((from, to, next) => {
+router.beforeEach((to, from, next) => {
+  document.title = to.name !== 'Home' ? to.name + ' | Movie App' : 'Movie App'
   next()
 })
 

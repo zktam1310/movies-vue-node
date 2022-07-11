@@ -23,6 +23,7 @@ export default {
       })
       const data = await res.json()
       this.movie = data.data.movie
+      document.title = this.movie.title + ' | Movie App'
     }
   }
 }
