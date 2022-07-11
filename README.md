@@ -1,8 +1,15 @@
 # movies-vue-node
 A fullstack web application for Movies, implemented in Vue JS and Node JS.
+To run it locally, please compile and run both frontend and backend apps accordingly as stated below.
 
 
-# -- Express Node Backend -- 
+# -- Environment Variables --
+Kindly include the .env files (rename to .env) which sent via email in the root of both frontend and backend repositories.
+node-be/.env
+vue-fe/.env
+
+
+# -- Express Node Backend --
 ```
 cd node-be
 ```
